@@ -299,10 +299,98 @@ export const darkTheme = createTheme({
     },
     MuiDialog: {
       styleOverrides: {
+        root: {
+          // Mobile-friendly backdrop
+          '& .MuiBackdrop-root': {
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            backdropFilter: 'blur(10px)',
+          },
+        },
         paper: {
           background: 'linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%)',
           backdropFilter: 'blur(20px)',
           border: '1px solid rgba(0, 212, 255, 0.3)',
+          borderRadius: '12px',
+          margin: '16px',
+          maxHeight: 'calc(100vh - 32px)',
+          // Mobile-specific styles
+          '@media (max-width: 600px)': {
+            margin: '8px',
+            maxHeight: 'calc(100vh - 16px)',
+            maxWidth: 'calc(100vw - 16px)',
+            width: 'calc(100vw - 16px)',
+            borderRadius: '8px',
+          },
+        },
+      },
+    },
+    MuiDialogTitle: {
+      styleOverrides: {
+        root: {
+          padding: '20px 24px',
+          fontSize: '1.25rem',
+          fontWeight: 600,
+          borderBottom: '1px solid rgba(0, 212, 255, 0.2)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          // Mobile-specific styles
+          '@media (max-width: 600px)': {
+            padding: '16px',
+            fontSize: '1.1rem',
+          },
+        },
+      },
+    },
+    MuiDialogContent: {
+      styleOverrides: {
+        root: {
+          padding: '24px',
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          // Custom scrollbar
+          '&::-webkit-scrollbar': {
+            width: '8px',
+          },
+          '&::-webkit-scrollbar-track': {
+            background: 'rgba(255, 255, 255, 0.05)',
+            borderRadius: '4px',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            background: 'rgba(0, 212, 255, 0.3)',
+            borderRadius: '4px',
+            '&:hover': {
+              background: 'rgba(0, 212, 255, 0.5)',
+            },
+          },
+          // Mobile-specific styles
+          '@media (max-width: 600px)': {
+            padding: '16px',
+            fontSize: '0.9rem',
+            // Better touch scrolling
+            WebkitOverflowScrolling: 'touch',
+          },
+        },
+      },
+    },
+    MuiDialogActions: {
+      styleOverrides: {
+        root: {
+          padding: '16px 24px',
+          borderTop: '1px solid rgba(0, 212, 255, 0.2)',
+          gap: '8px',
+          // Mobile-specific styles
+          '@media (max-width: 600px)': {
+            padding: '12px 16px',
+            flexDirection: 'column-reverse',
+            '& > :not(:first-of-type)': {
+              marginLeft: 0,
+            },
+            '& > *': {
+              width: '100%',
+              margin: '4px 0',
+            },
+          },
         },
       },
     },

@@ -39,6 +39,7 @@ import {
   Edit as EditIcon,
   Delete as DeleteIcon,
   Add as AddIcon,
+  Close as CloseIcon,
 } from '@mui/icons-material';
 import { useApp } from '../context/AppContext';
 
@@ -518,8 +519,35 @@ const Settings = () => {
       </Accordion>
 
       {/* Add API Key Dialog */}
-      <Dialog open={showApiDialog} onClose={() => setShowApiDialog(false)} maxWidth="sm" fullWidth>
-        <DialogTitle>Add API Key</DialogTitle>
+      <Dialog 
+        open={showApiDialog} 
+        onClose={() => setShowApiDialog(false)} 
+        maxWidth="sm" 
+        fullWidth
+        fullScreen={window.innerWidth < 600}
+      >
+        <DialogTitle sx={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'space-between',
+          pr: 1,
+        }}>
+          <span>Add API Key</span>
+          <IconButton
+            edge="end"
+            onClick={() => setShowApiDialog(false)}
+            aria-label="close"
+            sx={{
+              color: 'rgba(255, 255, 255, 0.7)',
+              '&:hover': {
+                color: '#00d4ff',
+                backgroundColor: 'rgba(0, 212, 255, 0.1)',
+              },
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
         <DialogContent>
           <Grid container spacing={3} sx={{ mt: 1 }}>
             <Grid item xs={12}>

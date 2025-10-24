@@ -35,6 +35,7 @@ import {
   Visibility as ViewIcon,
   Delete as DeleteIcon,
   Settings as SettingsIcon,
+  Close as CloseIcon,
 } from '@mui/icons-material';
 import { useApp } from '../context/AppContext';
 
@@ -237,8 +238,30 @@ const Reports = () => {
         onClose={() => setShowGenerateDialog(false)}
         maxWidth="md"
         fullWidth
+        fullScreen={window.innerWidth < 600}
       >
-        <DialogTitle>Generate New Report</DialogTitle>
+        <DialogTitle sx={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'space-between',
+          pr: 1,
+        }}>
+          <span>Generate New Report</span>
+          <IconButton
+            edge="end"
+            onClick={() => setShowGenerateDialog(false)}
+            aria-label="close"
+            sx={{
+              color: 'rgba(255, 255, 255, 0.7)',
+              '&:hover': {
+                color: '#00d4ff',
+                backgroundColor: 'rgba(0, 212, 255, 0.1)',
+              },
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
         <DialogContent>
           <Grid container spacing={3} sx={{ mt: 1 }}>
             <Grid item xs={12}>

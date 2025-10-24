@@ -426,6 +426,136 @@ code, pre {
   }
 }
 
+/* Mobile-specific optimizations */
+@media (max-width: 600px) {
+  /* Larger touch targets */
+  button, .MuiButton-root {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  /* Better spacing on mobile */
+  .MuiCard-root {
+    margin: 8px 4px !important;
+  }
+  
+  /* Optimize typography for mobile */
+  .MuiTypography-h4 {
+    font-size: 1.5rem !important;
+  }
+  
+  .MuiTypography-h5 {
+    font-size: 1.25rem !important;
+  }
+  
+  .MuiTypography-h6 {
+    font-size: 1.1rem !important;
+  }
+  
+  /* Optimize forms for mobile */
+  .MuiTextField-root, .MuiFormControl-root {
+    margin-bottom: 16px !important;
+  }
+  
+  /* Better mobile scrolling */
+  .MuiList-root {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Hide less important elements on mobile */
+  .mobile-hide {
+    display: none !important;
+  }
+  
+  /* Full-width buttons on mobile */
+  .MuiDialogActions-root .MuiButton-root {
+    width: 100%;
+    margin: 4px 0 !important;
+  }
+  
+  /* Optimize tables for mobile */
+  .MuiTableContainer-root {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Better chip spacing on mobile */
+  .MuiChip-root {
+    margin: 4px 2px !important;
+  }
+  
+  /* Optimize accordions for mobile */
+  .MuiAccordion-root {
+    margin-bottom: 8px !important;
+  }
+  
+  /* Prevent zoom on input focus (iOS) */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .result-card:hover,
+  .dashboard-widget:hover {
+    transform: none;
+  }
+  
+  /* Add tap feedback instead */
+  .result-card:active,
+  .dashboard-widget:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+  
+  /* Larger tap targets */
+  .MuiIconButton-root {
+    padding: 12px !important;
+  }
+  
+  /* Better scrollbar visibility on touch */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 212, 255, 0.4);
+    border-radius: 6px;
+  }
+}
+
+/* Landscape mobile optimizations */
+@media (max-width: 900px) and (orientation: landscape) {
+  /* Optimize for landscape mode */
+  .MuiDialog-paper {
+    max-height: 90vh !important;
+  }
+  
+  .MuiDialogContent-root {
+    max-height: calc(90vh - 120px) !important;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 601px) and (max-width: 1024px) {
+  /* Optimize for tablets */
+  .dashboard-widget {
+    padding: 1.25rem;
+  }
+  
+  .result-card {
+    padding: 1.25rem;
+  }
+  
+  /* Better grid layouts for tablets */
+  .MuiGrid-item {
+    padding: 12px !important;
+  }
+}
+
 /* Print styles */
 @media print {
   body {
